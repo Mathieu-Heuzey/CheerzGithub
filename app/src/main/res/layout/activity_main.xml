@@ -14,20 +14,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/userName"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="71dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:text="Mathieu-Heuzey"
-        android:hint="Insert user name here" />
+        android:hint="Insert user name here"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Load repositories"
         android:id="@+id/Loader"
-        android:layout_below="@+id/userName"
-        android:layout_centerHorizontal="true"
         android:onClick="loadRepo"
-        android:layout_marginTop="43dp" />
+        android:baselineAligned="false"
+        android:layout_below="@+id/userName"
+        android:layout_centerHorizontal="true" />
+
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/recyclerView"
+    android:layout_below="@+id/Loader"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+</android.support.v7.widget.RecyclerView>
+
 </RelativeLayout>

@@ -5,4 +5,15 @@ package cheerztest.cheerztest.presenter.vo;
  */
 public class RepoVO {
     public String name;
+    public long id;
+
+
+    public long getId()
+    {
+        return this.id;
+    }
+    public String getName()
+    {
+        return this.name;
+    }
 }
