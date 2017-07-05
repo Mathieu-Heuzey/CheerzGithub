@@ -19,7 +19,6 @@ import cheerztest.cheerztest.presenter.vo.RepoVO;
  */
 public class MainPresenter extends AbstractPresenter<MainContract.View> implements MainContract.Presenter {
 
-
     public MainPresenter(MainContract.View view) {
         super(view);
     }
@@ -35,11 +34,9 @@ public class MainPresenter extends AbstractPresenter<MainContract.View> implemen
 
         for (Repo repo : event.getRepos()) {
             RepoVO vo = new RepoVO();
-
             vo.name = repo.name;
             voList.add(vo);
         }
-
         this.view.displayRepos(voList);
     }
 

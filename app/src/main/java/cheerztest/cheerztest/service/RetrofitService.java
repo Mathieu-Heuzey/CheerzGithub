@@ -1,5 +1,7 @@
 package cheerztest.cheerztest.service;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -35,25 +37,22 @@ public class RetrofitService {
                     callback.onSuccess(repoList);
                 } else {
                     try {
-                        //TODO check if errorBody not null
                         ResponseBody errorBody = response.errorBody();
-                        String errorMsg = errorBody.string();
-                        //TODO parse error and get error msg
-                        callback.onError(response.code(), errorMsg);
+                        if (errorBody != null) {
+                            String errorMsg = errorBody.string();
+                            if (errorMsg.contains("Not Found") == true)
+                                callback.onError(response.code(), "Use doesn't exist");
+                        }
                     } catch (IOException e) {
-                        //TODO handle properly and call
-                        //TODO mettre un msg qui correct -> unexpected error si ca rentre dans le catch
                         e.printStackTrace();
-                        callback.onError(response.code(), null /*TODO*/);
+                        callback.onError(response.code(), "unexpected error");
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<List<Repo>> call, Throwable t) {
-                //i.e No internet
-                //TODO proper msg
-                callback.onError(0, null);
+                callback.onError(0, "an errore as occured, check your internet connection and try again");
             }
         });
     }

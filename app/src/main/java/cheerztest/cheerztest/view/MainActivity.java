@@ -28,7 +28,6 @@ public class MainActivity extends AbstractActivity<MainContract.Presenter> imple
 
     private RecyclerView recycler;
     private RecyclerView.Adapter adapter;
-    private List<Repo> listRepo;
     @Override
     protected MainContract.Presenter newPresenter() {
         return new MainPresenter(this);
@@ -46,8 +45,6 @@ public class MainActivity extends AbstractActivity<MainContract.Presenter> imple
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
-        listRepo = new ArrayList<>();
-
     }@Override
     public void onClick(View v) {
         EditText edt = (EditText)findViewById(R.id.userName);
@@ -57,9 +54,7 @@ public class MainActivity extends AbstractActivity<MainContract.Presenter> imple
 
     @Override
     public void displayRepos(List<RepoVO> repos) {
-        //TODO la liste avec un recyclerview
         repos.size();
-
         adapter = new MyAdapter(repos, this);
         recycler.setAdapter(adapter);
     }

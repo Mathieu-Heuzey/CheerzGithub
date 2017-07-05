@@ -39,7 +39,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
     RepoVO listRepo = this.listRepo.get(position);
     holder.repoName.setText(listRepo.getName());
-     //   holder.repoName.setText((listRepo.getId());
     }
 
     @Override
@@ -49,11 +48,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView repoName;
-
         public ViewHolder(View itemView) {
             super(itemView);
             repoName = (TextView) itemView.findViewById(R.id.repoName);
-
         }
     }
 }
